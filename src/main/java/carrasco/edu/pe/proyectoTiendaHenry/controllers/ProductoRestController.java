@@ -35,7 +35,7 @@ public class ProductoRestController {
         return service.listarProductosPorCategoria(idCategoria);
     }
 
-    @GetMapping("id/{id}")
+    @GetMapping("/id/{id}")
     public Producto obtenerProductoPorId(@PathVariable Integer id) {
         return service.buscarProductoPorId(id);
     }
