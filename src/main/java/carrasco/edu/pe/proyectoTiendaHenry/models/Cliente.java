@@ -134,5 +134,11 @@ public class Cliente {
         this.fechaRegistro = fechaRegistro;
     }
 
+    @PrePersist
+    public void prePersist() {
+        this.fechaRegistro = LocalDateTime.now();
+    }
+
+
     
 }

@@ -138,6 +138,10 @@ public class Producto {
         this.proveedor = proveedor;
     }
 
+    @PrePersist
+    public void prePersist() {
+        this.fechaRegistro = LocalDateTime.now();
+    }
     
 
     

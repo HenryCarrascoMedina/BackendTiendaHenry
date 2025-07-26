@@ -3,10 +3,12 @@ package carrasco.edu.pe.proyectoTiendaHenry.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import carrasco.edu.pe.proyectoTiendaHenry.models.Sucursal;
 import carrasco.edu.pe.proyectoTiendaHenry.repositories.SucursalRepository;
 
+@Service
 public class SucursalService {
     
     @Autowired
@@ -40,4 +42,14 @@ public class SucursalService {
         }
         return null;
     }
+
+    // Eliminar una Sucursal por ID (lógica: cambio de estado a inactivo)
+    public void eliminarSucursal(Integer id) {
+        Sucursal existente = repository.findById(id).orElse(null);
+        if (existente != null) {
+            existente.setEstado(false); // Marcar como inactiva
+            repository.save(existente);
+        }
+    }
+    
 }

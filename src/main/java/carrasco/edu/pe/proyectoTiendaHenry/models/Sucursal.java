@@ -79,5 +79,9 @@ public class Sucursal {
         this.fechaRegistro = fechaRegistro;
     }
 
+    @PrePersist
+    public void prePersist() {
+        this.fechaRegistro = LocalDateTime.now();
+    }
     
 }

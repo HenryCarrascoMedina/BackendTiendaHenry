@@ -70,7 +70,11 @@ public class MetodoPago {
         this.fechaRegistro = fechaRegistro;
     }
 
-    
+    @PrePersist
+    public void prePersist() {
+        this.fechaRegistro = LocalDateTime.now();
+    }
+
     
     
 }
